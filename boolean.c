@@ -1,14 +1,20 @@
 #include <stdio.h>
 
 int main(int argc, char*argv[]) {
-	unsigned char value1 = 0x80;
-	unsigned char value2 = 0x20;
+	unsigned char codes = 0b01001101;
+	unsigned char mask = 0x40;
 	
-	unsigned char result = value1 + value2;
-	
-	printf("[%x]value1: %d 0x%x\n", &value1, value1, value1);	
-	printf("[%x]value2: %d 0x%x\n", &value2, value2, value2);
-	printf("[%x]result: %d 0x%x\n", &result, result, result);
-	
+	unsigned status1 = codes & mask;
+
+	printf("0x%x\n", status1);	
+	if(status1 > 0) {
+		printf("Both Flags Set\n");
+	}
+
+	unsigned status2 = codes | mask;
+	printf("0x%x\n", status2);
+
+
+
 	return 0;
 }
